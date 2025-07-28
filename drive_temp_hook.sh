@@ -77,6 +77,6 @@ do
     pwm=$( awk "BEGIN { printf(\"%.0f\", 18.5833 * ${hottest} - 618.4167)}")
   fi
   #echo PWM "$pwm"
-  curl "http://Fabrica:Fabrica@192.168.1.30/actors/add?actor=fancontrol&id=1&payload=${pwm}" > /dev/null 2>&1
+  curl "http://Fabrica:Fabrica@fanhub.local/actors/add?actor=fancontrol&id=1&payload=${pwm}" > /dev/null 2>&1
   sleep 10
 done
