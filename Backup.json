@@ -1,0 +1,5 @@
+{
+  "/settings/config.json": "{\"tasksEnabled\":false,\"period\":10000,\"webUsername\":\"Fabrica\",\"webPassword\":\"Fabrica\",\"useNTP\":true,\"ntpUpdatePeriod\":360,\"ntpServer1\":\"pool.ntp.org\",\"ntpServer2\":\"time.google.com\",\"ntpServer3\":\"time.windows.com\",\"gmtOffset\":-18000,\"daylightOffset\":3600,\"WiFiClient\":true,\"configSSID\":\"ESP32Hub_Config\",\"configPW\":\"ESP32Hub\",\"hostname\":\"fanhub\",\"mdns\":true}",
+  "/settings/act/LEDPWM.json": "{\"Name\":\"FanControl\",\"Pin\":6,\"saveDutyCycle\":false,\"dutyCycle\":128,\"ledc_channel\":0,\"ledc_resolution\":8,\"ledc_frequency\":25000}",
+  "/settings/sen/Tacho.json": "{\"Name\":\"Tacho\",\"Pin\":4,\"Mode\":{\"current\":\"Input\",\"options\":[\"Input\",\"Pullup\",\"Pulldown\",\"Open Drain\"]}}"
+}
