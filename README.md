@@ -56,7 +56,8 @@ The script uses a linear fan curve to map the disk temperatures between 35-47 C 
 
 The line reading:
 ```shell
-curl "http://Fabrica:Fabrica@fanhub.local/actors/add?actor=fancontrol&id=1&payload=${pwm}" > /dev/null 2>&1```
+curl "http://Fabrica:Fabrica@fanhub.local/actors/add?actor=fancontrol&id=1&payload=${pwm}" > /dev/null 2>&1
+```
 will need to be updated from the default user name and password to whichever one was set in the web interface. Also, sometimes the mDNS address `fanhub.local` will take a few minutes to update or be flakey, so that can be substituted with the IP address for more reliability if one is reserved for the ESP32.
 
 If you need to test or troubleshoot, uncomment the `echo` statements in the script. It's not recommended to leave those uncommented when not testing.
