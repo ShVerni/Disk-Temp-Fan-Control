@@ -54,7 +54,10 @@ The script runs every 10 seconds in an infinite loop and checks a list of disks 
 
 The script uses a linear fan curve to map the disk temperatures between 35-47 C to PWM values between 32-255. Customize these values and fan curve as needed.
 
-The line reading `curl "http://Fabrica:Fabrica@fanhub.local/actors/add?actor=fancontrol&id=1&payload=${pwm}" > /dev/null 2>&1` will need to be updated from the default user name and password to whichever one was set in the web interface. Also, sometimes the mDNS address `fanhub.local` will take a few minutes to update or be flakey, so that can be substituted with the IP address for more reliability if one is reserved for the ESP32.
+The line reading:
+```shell
+curl "http://Fabrica:Fabrica@fanhub.local/actors/add?actor=fancontrol&id=1&payload=${pwm}" > /dev/null 2>&1```
+will need to be updated from the default user name and password to whichever one was set in the web interface. Also, sometimes the mDNS address `fanhub.local` will take a few minutes to update or be flakey, so that can be substituted with the IP address for more reliability if one is reserved for the ESP32.
 
 If you need to test or troubleshoot, uncomment the `echo` statements in the script. It's not recommended to leave those uncommented when not testing.
 
