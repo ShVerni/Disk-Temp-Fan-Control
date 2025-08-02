@@ -17,7 +17,7 @@ This project was adapted from the very helpful [esp32-fan-controller](https://gi
 An example of the hardware needed is provided below, you don't need these exact items.
 
 1. One or more 4-pin PWM CPU fans.
-2. ESP32, this project uses the [ESP32-S3 Zero](https://www.aliexpress.us/item/3256806984814685.html), but any Fabrica-IO compatible device should work by tweaking the pins used.
+2. ESP32, this project uses the [ESP32-S3 Zero](https://www.aliexpress.us/item/3256806984814685.html) (be sure to select the S3 version), but any Fabrica-IO compatible device should work by tweaking the pins used.
 3. Optional: [4-pin fan cable](https://www.amazon.com/skineat-Extension-Cable%EF%BC%8C4-Cable%EF%BC%8CCable-pc%EF%BC%8C3-Pin/dp/B08FT643QL), can optionally add fan splitters or hubs to control more fans.
 4. Optional: [4-pin Molex](https://www.amazon.com/YiKaiEn-Molex-Video-Power-Supply/dp/B0BQRTBJWX) or [SATA](https://www.amazon.com/Express-Graphics-Video-Power-Adapter/dp/B0793N7TP9) power cable to get power from the computer power supply.
 5. Optional: 0.1 nF (100 pF), 10 uF, and 100 uF capacitors. 10 KΩ and 3.3 KΩ resistors for reading the fan tachometer.
@@ -54,7 +54,11 @@ The script runs every 10 seconds in an infinite loop and checks a list of disks 
 
 The script uses a linear fan curve to map the disk temperatures between 35-47 C to PWM values between 32-255. Customize these values and fan curve as needed.
 
-The line reading `curl "http://Fabrica:Fabrica@fanhub.local/actors/add?actor=fancontrol&id=1&payload=${pwm}" > /dev/null 2>&1` will need to be updated from the default user name and password to whichever one was set in the web interface. Also, sometimes the mDNS address `fanhub.local` will take a few minutes to update or be flakey, so that can be substituted with the IP address for more reliability if one is reserved for the ESP32.
+The line reading:
+```shell
+curl "http://Fabrica:Fabrica@fanhub.local/actors/add?actor=fancontrol&id=1&payload=${pwm}" > /dev/null 2>&1
+```
+will need to be updated from the default user name and password to whichever one was set in the web interface. Also, sometimes the mDNS address `fanhub.local` will take a few minutes to update or be flakey, so that can be substituted with the IP address for more reliability if one is reserved for the ESP32.
 
 If you need to test or troubleshoot, uncomment the `echo` statements in the script. It's not recommended to leave those uncommented when not testing.
 
