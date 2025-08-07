@@ -17,14 +17,14 @@ This project was adapted from the very helpful [esp32-fan-controller](https://gi
 An example of the hardware needed is provided below, you don't need these exact items.
 
 1. One or more 4-pin PWM CPU fans.
-2. ESP32, this project uses the [ESP32-S3 Zero](https://www.aliexpress.us/item/3256806984814685.html) (be sure to select the S3 version), but any Fabrica-IO compatible device should work by tweaking the pins used.
+2. ESP32, this project uses the [ESP32-S3 or C3 Zero](https://www.aliexpress.us/item/3256806984814685.html), but any Fabrica-IO compatible device should work by tweaking the pins used.
 3. Optional: [4-pin fan cable](https://www.amazon.com/skineat-Extension-Cable%EF%BC%8C4-Cable%EF%BC%8CCable-pc%EF%BC%8C3-Pin/dp/B08FT643QL), can optionally add fan splitters or hubs to control more fans.
 4. Optional: [4-pin Molex](https://www.amazon.com/YiKaiEn-Molex-Video-Power-Supply/dp/B0BQRTBJWX) or [SATA](https://www.amazon.com/Express-Graphics-Video-Power-Adapter/dp/B0793N7TP9) power cable to get power from the computer power supply.
 5. Optional: 0.1 nF (100 pF), 10 uF, and 100 uF capacitors. 10 KΩ and 3.3 KΩ resistors for reading the fan tachometer.
 
 #### Assembly
 
-Hardware assembly is based off of [this guide](https://github.com/KlausMu/esp32-fan-controller). Please follow the wiring guide outline [here](https://github.com/KlausMu/esp32-fan-controller/wiki/01-Wiring-diagram#wiring-diagram-for-fan-and-bme280) for hooking up the fan and connect the fan PWM to `pin 6` on the ESP32. Ignore the BME280. If you don't want to use the tachometer from the fan (__WIP__) you can also ignore everything connected to the `tacho` wire, otherwise connect it as shown using `pin 4` on the ESP32. You can either hook up to the fan directly or use the optional fan cable from above.
+Hardware assembly is based off of [this guide](https://github.com/KlausMu/esp32-fan-controller). Please follow the wiring guide outline [here](https://github.com/KlausMu/esp32-fan-controller/wiki/01-Wiring-diagram#wiring-diagram-for-fan-and-bme280) for hooking up the fan and connect the fan PWM to `pin 6` on the ESP32-S3 or `pin 5` on the C3. Ignore the BME280. If you don't want to use the tachometer from the fan (__WIP__) you can also ignore everything connected to the `tacho` wire, otherwise connect it as shown using `pin 4` on the ESP32-S3 or `pin 3` on the C3. You can either hook up to the fan directly or use the optional fan cable from above.
 
 You can use the 4-pin Molex or SATA connector (see [pinout](https://www.smpspowersupply.com/connectors-pinouts.html)) to harvest the GND, 12V, and 5V lines from the computer's power supply. Hook up the 5V line to the `5V pin` on the ESP32. The 12V line can be connected to the 12V line on the fan cable, either by soldering to the fan cable from above or soldering the fan in directly.
 
@@ -41,7 +41,7 @@ Plug in power form the computer power supply, then hook up the fan or fans, and 
 ### Fabrica-IO
 
 1. Follow the [Fabirca-IO guide](https://github.com/FabricaIO/FabricaIO-App/wiki/App-Usage#using-the-fabrica-io-app) for installing and setting up the Fabrica-IO app.
-2. Copy the [fabricaio.json](fabricaio.json) file to the project directory and then load the project in the app.
+2. Copy the [fabricaio.json](fabricaio.json) file to the project directory and then load the project in the app. For the ESP32-C3 rename the file [fabricaio-C3.json](fabricaio-C3.json) to `fabricaio.json` and use that file instead.
 3. Compile and flash the program using the Fabrica-IO app.
 4. See [this guide](https://github.com/FabricaIO/FabricaIO-esp32hub/wiki/WiFi-and-Web-Interface#connecting-to-wifi) for connecting to, and setting up, the default web interface on the ESP32.
 5. From the `Storage Manager` section on the web interface restore the [Backup.json](Backup.json) file to add the default configuration. Adjust the configuration through the web interface as needed.
