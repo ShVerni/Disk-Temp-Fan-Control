@@ -41,7 +41,7 @@ Plug in power form the computer power supply, then hook up the fan or fans, and 
 ### Fabrica-IO
 
 1. Follow the [Fabirca-IO guide](https://github.com/FabricaIO/FabricaIO-App/wiki/App-Usage#using-the-fabrica-io-app) for installing and setting up the Fabrica-IO app.
-2. Copy the [fabricaio.json](fabricaio.json) file to the project directory and then load the project in the app. For the ESP32-C3 rename the file [fabricaio-C3.json](fabricaio-C3.json) to `fabricaio.json` and use that file instead.
+2. Copy the `fabricaio-[XX].json` file (`-S3` or `-C3`) appropriate to the ESP32 device you used to the project directory and then load the project in the app.
 3. Compile and flash the program using the Fabrica-IO app.
 4. See [this guide](https://github.com/FabricaIO/FabricaIO-esp32hub/wiki/WiFi-and-Web-Interface#connecting-to-wifi) for connecting to, and setting up, the default web interface on the ESP32.
 5. From the `Storage Manager` section on the web interface restore the [Backup.json](Backup.json) file to add the default configuration. Adjust the configuration through the web interface as needed.
